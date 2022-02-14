@@ -1,12 +1,17 @@
 from fastapi import FastAPI
 from flexit import queries
+
 app = FastAPI()
 
 
 @app.get("/")
 async def root():
-    queries.shows_of_actor('Kyle MacLachlan')
-    return {"message": queries.shows_of_actor('Kevin Bacon')}
+    return {"message": "Hello World!"}
+
+
+@app.get("/shows_of_actor/{actor}")
+async def shows_of_actor(actor):
+    return {"message": queries.shows_of_actor(actor)}
 
 
 @app.get("/health_check")
