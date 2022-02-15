@@ -1,0 +1,33 @@
+name: flexit-api-ci
+on: push
+
+jobs:
+  pytest:
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: [3.10.2]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Load cached venv
+        id: cached-pip-dependencies
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/requirements.txt') }}
+      - name: Install dependencies
+        if: steps.cached-pip-dependencies.outputs.cache-hit != 'true'
+        run: |
+        pip install --upgrade pip setuptools
+        pip install -r requirements.txt
+      - name: Run tests
+        run: |
+          source .venv/bin/activate
+          pytest -v tests/
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
