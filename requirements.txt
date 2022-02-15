@@ -8,6 +8,8 @@ anyio==3.5.0
     # via starlette
 asgiref==3.5.0
     # via uvicorn
+attrs==21.4.0
+    # via pytest
 click==8.0.3
     # via
     #   pip-tools
@@ -20,12 +22,24 @@ httptools==0.3.0
     # via uvicorn
 idna==3.3
     # via anyio
+iniconfig==1.1.1
+    # via pytest
+packaging==21.3
+    # via pytest
 pep517==0.12.0
     # via pip-tools
 pip-tools==6.5.1
     # via -r requirements.in
+pluggy==1.0.0
+    # via pytest
+py==1.11.0
+    # via pytest
 pydantic==1.9.0
     # via fastapi
+pyparsing==3.0.7
+    # via packaging
+pytest==7.0.1
+    # via -r requirements.in
 python-dotenv==0.19.2
     # via uvicorn
 pyyaml==6.0
@@ -35,8 +49,10 @@ sniffio==1.2.0
 starlette==0.17.1
     # via fastapi
 tomli==2.0.1
-    # via pep517
-typing-extensions==4.1.0
+    # via
+    #   pep517
+    #   pytest
+typing-extensions==4.1.1
     # via pydantic
 uvicorn[standard]==0.17.4
     # via -r requirements.in
@@ -48,8 +64,6 @@ websockets==10.1
     # via uvicorn
 wheel==0.37.1
     # via pip-tools
-
-dist/flexit-0.1.0.tar.gz
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
