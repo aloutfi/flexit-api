@@ -1,17 +1,9 @@
 from fastapi import FastAPI
-from flexit import queries
 
-app = FastAPI()
+from app.api.api_v1 import api_router
 
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World!"}
-
-
-@app.get("/shows_of_actor/{actor}")
-async def shows_of_actor(actor):
-    return {"message": queries.shows_of_actor(actor)}
+app = FastAPI(docs_url="/", redoc_url=None)
+app.include_router(api_router)
 
 
 @app.get("/health_check")
