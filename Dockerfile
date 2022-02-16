@@ -3,7 +3,6 @@ FROM python:3.10.2
 WORKDIR /code
 
 COPY ./requirements.txt /code/requirements.txt
-COPY ./dist /code/dist
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
