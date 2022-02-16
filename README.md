@@ -5,7 +5,7 @@
 ![flexit-service-ci](https://github.com/aloutfi/flexit/actions/workflows/flexit-ci.yml/badge.svg)
 
 
-This is the presentation layer for flexit. It is implemented with FastAPI.
+This is the presentation layer for flexit. It is implemented with the FastAPI python package.
 
 
 During installation, the [flexit package](https://github.com/aloutfi/flexit) is installed via `requirements.txt`
