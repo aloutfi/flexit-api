@@ -54,6 +54,8 @@ python-decouple==3.6
     # via flexit
 python-dotenv==0.19.2
     # via uvicorn
+python-multipart==0.0.5
+    # via -r requirements.in
 pytz==2021.3
     # via dateparser
 pytz-deprecation-shim==0.1.0.post0
@@ -63,7 +65,9 @@ pyyaml==6.0
 regex==2022.1.18
     # via dateparser
 six==1.16.0
-    # via python-dateutil
+    # via
+    #   python-dateutil
+    #   python-multipart
 sniffio==1.2.0
     # via anyio
 sqlalchemy==1.4.31
