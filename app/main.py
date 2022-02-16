@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from api.api_v1.api import api_router
 
+from api.api_v1 import api_router
 
 app = FastAPI(docs_url="/", redoc_url=None)
 app.include_router(api_router)
