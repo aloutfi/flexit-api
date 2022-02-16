@@ -10,6 +10,10 @@ asgiref==3.5.0
     # via uvicorn
 attrs==21.4.0
     # via pytest
+certifi==2021.10.8
+    # via requests
+charset-normalizer==2.0.12
+    # via requests
 click==8.0.3
     # via
     #   pip-tools
@@ -25,7 +29,9 @@ h11==0.13.0
 httptools==0.3.0
     # via uvicorn
 idna==3.3
-    # via anyio
+    # via
+    #   anyio
+    #   requests
 iniconfig==1.1.1
     # via pytest
 packaging==21.3
@@ -64,6 +70,8 @@ pyyaml==6.0
     # via uvicorn
 regex==2022.1.18
     # via dateparser
+requests==2.27.1
+    # via -r requirements.in
 six==1.16.0
     # via
     #   python-dateutil
@@ -84,6 +92,8 @@ tzdata==2021.5
     # via pytz-deprecation-shim
 tzlocal==4.1
     # via dateparser
+urllib3==1.26.8
+    # via requests
 uvicorn[standard]==0.17.4
     # via -r requirements.in
 uvloop==0.16.0
