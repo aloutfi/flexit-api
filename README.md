@@ -10,7 +10,7 @@ This is the presentation layer for flexit. It is implemented with FastAPI.
 
 During installation, the [flexit package](https://github.com/aloutfi/flexit) is installed via `requirements.txt`
 ## Usage
-This system can be ran via docker-compose or in a virtual environment.
+Assuming you have access to a database as described in the ADR, this system can be ran via docker-compose or in a virtual environment.
 
 ### Docker-Compose strategy:
 ```bash
