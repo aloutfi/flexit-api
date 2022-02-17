@@ -16,8 +16,9 @@ Assuming you have access to a database as described in the ADR, this system can 
 ```bash
 cp app.override.env.in app.override.env
 ```
-Fill in the DATABASE_URL environment variable
+Fill in the `DATABASE_URL` environment variable
 
+```bash
 docker-compose up
 ```
 
