@@ -3,20 +3,13 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from pydantic import BaseModel
 
 fake_users_db = {
-    "johndoe": {
-        "username": "johndoe",
-        "full_name": "John Doe",
-        "email": "johndoe@example.com",
-        "hashed_password": "fakehashedsecret",
+    "torqataUser": {
+        "username": "torqataUser",
+        "full_name": "Anew Job",
+        "email": "example@example.com",
+        "hashed_password": "fakehashedtkFs*tAxxsL7QArNjHpcbqyE",
         "disabled": False,
-    },
-    "alice": {
-        "username": "alice",
-        "full_name": "Alice Wonderson",
-        "email": "alice@example.com",
-        "hashed_password": "fakehashedsecret2",
-        "disabled": True,
-    },
+    }
 }
 
 
@@ -68,7 +61,7 @@ async def get_current_active_user(current_user: User = Depends(get_current_user)
     return current_user
 
 
-router = APIRouter()
+router = APIRouter(tags=["authentication"])
 
 
 @router.post("/token")
