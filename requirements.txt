@@ -24,6 +24,8 @@ fastapi==0.73.0
     # via -r requirements.in
 flexit @ https://github.com/aloutfi/flexit/raw/main/dist/flexit-1.0.0-py3-none-any.whl
     # via -r requirements.in
+greenlet==1.1.2
+    # via sqlalchemy
 h11==0.13.0
     # via uvicorn
 httptools==0.3.0
@@ -94,7 +96,7 @@ tzlocal==4.1
     # via dateparser
 urllib3==1.26.8
     # via requests
-uvicorn[standard]==0.17.4
+uvicorn[standard]==0.17.5
     # via -r requirements.in
 uvloop==0.16.0
     # via uvicorn
