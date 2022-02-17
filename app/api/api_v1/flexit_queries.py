@@ -1,13 +1,19 @@
 from fastapi import APIRouter, HTTPException
 
-from flexit import queries
+from flexit import creation, queries, dto
 
-router = APIRouter()
+router = APIRouter(tags=["flexit queries"])
 
 
-@router.get("/shows_of_actor")
+@router.get("/high-level-stats")
+async def high_level_stats():
+    """Some high level statistics about the dataset."""
+    return queries.high_level_stats()
+
+
+@router.get("/shows-of-actor")
 async def shows_of_actor(actor: str):
-    """Call shows_of_actor flexit query."""
+    """Query the database for shows that an actor has participated in as a cast member."""
     try:
         return queries.shows_of_actor(actor)
     except ValueError:
@@ -16,24 +22,28 @@ async def shows_of_actor(actor: str):
         )
 
 
-@router.get("/shows_in_category")
+@router.get("/shows-in-category")
 async def shows_in_category(category: str, start: int = 0, stop: int = 20):
-    """Call shows_in_category flexit query."""
+    """Query the database for shows that fall within a given category. You can call up to 99 values at once."""
     if start > stop:
         raise HTTPException(
             status_code=422, detail="value of start must be less than value of stop."
         )
     try:
         return queries.shows_in_category(category, start, stop)
+    except ValueError:
+        raise HTTPException(
+            status_code=404, detail="The category doesn't exist in our database."
+        )
     except NotImplementedError:
         raise HTTPException(
             status_code=422, detail="range between start and stop must be below 100."
         )
 
 
-@router.get("/person_is_director_and_actor")
+@router.get("/person-is-director-and-actor")
 async def person_is_director_and_actor(person: str):
-    """Call person_is_director_and_actor flexit query."""
+    """Query the database to determine whether a person has directed and acted."""
     try:
         return queries.person_is_director_and_actor(person)
     except ValueError:
@@ -43,9 +53,9 @@ async def person_is_director_and_actor(person: str):
         )
 
 
-@router.get("/person_directed_and_acted_in_same_show")
+@router.get("/person-directed-and-acted-in-same-show")
 async def person_directed_and_acted_in_same_show(person: str):
-    """Call queries.person_directed_and_acted_in_same_show flexit query."""
+    """Query the database for shows that a person was both a director for and a cast member of."""
     try:
         return queries.person_directed_and_acted_in_same_show(person)
     except ValueError:
@@ -55,13 +65,13 @@ async def person_directed_and_acted_in_same_show(person: str):
         )
 
 
-@router.get("/shows_added_on_date")
-async def shows_added_on_date(date):
-    """Call queries.shows_added_on_date flexit query."""
+@router.get("/shows-added-on-date")
+async def shows_added_on_date(date: str):
+    """Query the database for shows that were added on a specific date."""
     return queries.shows_added_on_date(date)
 
 
-@router.get("/high_level_stats")
-async def high_level_stats():
-    """Call queries.high_level_stats flexit query."""
-    return queries.high_level_stats()
+@router.post("/add-show-to-database")
+async def add_show_to_database(show: dto.Show):
+    """Add a new show to the database!"""
+    return creation.create_show(show)
