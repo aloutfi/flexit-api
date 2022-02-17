@@ -14,6 +14,10 @@ Assuming you have access to a database as described in the ADR, this system can 
 
 ### Docker-Compose strategy:
 ```bash
+cp app.override.env.in app.override.env
+```
+Fill in the DATABASE_URL environment variable
+
 docker-compose up
 ```
 
