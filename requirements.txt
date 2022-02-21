@@ -20,7 +20,7 @@ click==8.0.3
     #   uvicorn
 dateparser==1.1.0
     # via flexit
-fastapi==0.73.0
+fastapi==0.74.1
     # via -r requirements.in
 flexit @ https://github.com/aloutfi/flexit/raw/main/dist/flexit-1.0.0-py3-none-any.whl
     # via -r requirements.in
