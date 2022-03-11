@@ -28,7 +28,7 @@ greenlet==1.1.2
     # via sqlalchemy
 h11==0.13.0
     # via uvicorn
-httptools==0.3.0
+httptools==0.4.0
     # via uvicorn
 idna==3.3
     # via
@@ -96,7 +96,7 @@ tzlocal==4.1
     # via dateparser
 urllib3==1.26.8
     # via requests
-uvicorn[standard]==0.17.5
+uvicorn[standard]==0.17.6
     # via -r requirements.in
 uvloop==0.16.0
     # via uvicorn
