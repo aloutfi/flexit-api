@@ -1,7 +1,7 @@
 pip-tools==6.5.1
 fastapi==0.74.1
 uvicorn[standard]==0.17.5
-pytest==7.0.1
+pytest==7.1.2
 https://github.com/aloutfi/flexit/raw/main/dist/flexit-1.0.0-py3-none-any.whl
 python-multipart==0.0.5
 requests==2.27.1
