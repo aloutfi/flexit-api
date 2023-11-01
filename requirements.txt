@@ -20,7 +20,7 @@ click==8.0.3
     #   uvicorn
 dateparser==1.1.0
     # via flexit
-fastapi==0.74.1
+fastapi==0.75.2
     # via -r requirements.in
 flexit @ https://github.com/aloutfi/flexit/raw/main/dist/flexit-1.0.0-py3-none-any.whl
     # via -r requirements.in
@@ -40,7 +40,7 @@ packaging==21.3
     # via pytest
 pep517==0.12.0
     # via pip-tools
-pip-tools==6.5.1
+pip-tools==6.6.0
     # via -r requirements.in
 pluggy==1.0.0
     # via pytest
@@ -54,7 +54,7 @@ pydantic==1.9.0
     #   flexit
 pyparsing==3.0.7
     # via packaging
-pytest==7.0.1
+pytest==7.1.2
     # via -r requirements.in
 python-dateutil==2.8.2
     # via dateparser
